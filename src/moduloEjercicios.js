@@ -1,5 +1,11 @@
 import basededatos from './basededatos.js';
 
+const peliculas = basededatos.peliculas;
+const calific = basededatos.calificaciones;
+const criticos = basededatos.criticos;
+const directores = basededatos.directores;
+const generos = basededatos.generos;
+const paises = basededatos.paises;
 
 /**
 * Devuelve el promedio de anios de estreno de todas las peliculas de la base de datos.
