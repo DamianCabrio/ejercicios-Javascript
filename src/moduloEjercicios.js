@@ -24,11 +24,15 @@ export const pelicuasConCriticaPromedioMayorA = (promedio) => {
 };
 
 /**
-* Devuelve la lista de peliculas de un director
-* @param {string} nombreDirector
-*/
+ * Devuelve la lista de peliculas de un director
+ * @param {string} nombreDirector
+ */
 export const peliculasDeUnDirector = (nombreDirector) => {
-    return [];
+  return peliculas.filter((p) =>
+    p.directores.includes(
+      directores.find((d) => d.nombre === nombreDirector).id
+    )
+  );
 };
 
 /**
