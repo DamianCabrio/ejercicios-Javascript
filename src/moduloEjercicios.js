@@ -129,5 +129,19 @@ export const obtenerPeliculasConPuntuacionExcelente = () => {
  * @param {string} nombrePelicula
  */
 export const expandirInformacionPelicula = (nombrePelicula) => {
-    return {};
+  let pelicula = peliculas.find(p => p.nombre === nombrePelicula);
+  pelicula.directores = directores.filter(d => pelicula.directores.includes(d.id));
+  pelicula.generos = generos.filter(g => pelicula.generos.includes(g.id));
+  
+  const calificacionesPelicula = calific.filter(calif => calif.pelicula === pelicula.id);
+  const criticosPelicula = criticos.filter(crit => calificacionesPelicula.find(calif => crit.id === calif.critico));
+  calificacionesPelicula.forEach(calif => {
+    const critico = criticosPelicula.find(crit => crit.critico === calif.id)
+    critico.pais = paises.find(p => critico.pais = p.id).nombre
+    calif.critico = JSON.stringify(criticosPelicula.find(crit => crit.critico === calif.id));
+    delete calif.pelicula;
+  });
+
+  pelicula.criticos = calificacionesPelicula;
+  return pelicula
 };
