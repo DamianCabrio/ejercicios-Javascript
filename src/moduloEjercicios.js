@@ -36,11 +36,11 @@ export const peliculasDeUnDirector = (nombreDirector) => {
 };
 
 /**
-* Devuelve el promdedio de critica segun el id de la pelicula.
-* @param {number} peliculaId
-*/
+ * Devuelve el promdedio de critica segun el id de la pelicula.
+ * @param {number} peliculaId
+ */
 export const promedioDeCriticaBypeliculaId = (peliculaId) => {
-    return [];
+  return calific.filter(c => c.pelicula === peliculaId).reduce((a, b) => a + b.puntuacion, 0) / calific.filter(c => c.pelicula === peliculaId).length;
 };
 
 /**
