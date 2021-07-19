@@ -15,12 +15,12 @@ export const promedioAnioEstreno = () => {
 };
 
 /**
-* Devuelve la lista de peliculas con promedio de critica mayor al numero que llega
-* por parametro.
-* @param {number} promedio
-  */
+ * Devuelve la lista de peliculas con promedio de critica mayor al numero que llega
+ * por parametro.
+ * @param {number} promedio
+ */
 export const pelicuasConCriticaPromedioMayorA = (promedio) => {
-    return [];
+  return peliculas.filter((p) => calific.filter(c => c.pelicula === p.id).reduce((a, b) => a + b.puntuacion, 0) / calific.filter(c => c.pelicula === p.id).length > promedio);
 };
 
 /**
