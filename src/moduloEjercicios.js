@@ -8,10 +8,10 @@ const generos = basededatos.generos;
 const paises = basededatos.paises;
 
 /**
-* Devuelve el promedio de anios de estreno de todas las peliculas de la base de datos.
-*/
+ * Devuelve el promedio de anios de estreno de todas las peliculas de la base de datos.
+ */
 export const promedioAnioEstreno = () => {
-    return [];
+  return peliculas.reduce((a, b) => a + b.anio, 0) / peliculas.length;
 };
 
 /**
