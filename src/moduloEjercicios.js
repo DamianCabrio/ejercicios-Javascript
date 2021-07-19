@@ -76,9 +76,9 @@ export const promedioDeCriticaBypeliculaId = (peliculaId) => {
     ],
  */
 export const obtenerPeliculasConPuntuacionExcelente = () => {
-    // Ejemplo de como accedo a datos dentro de la base de datos
-    // console.log(basededatos.peliculas);
-    return [];
+  // Ejemplo de como accedo a datos dentro de la base de datos
+  // console.log(basededatos.peliculas);
+  return pelicuasConCriticaPromedioMayorA(8.99);
 };
 
 /**
