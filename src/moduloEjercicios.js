@@ -1,17 +1,10 @@
 import basededatos from './basededatos.js';
 
-const peliculas = basededatos.peliculas;
-const calific = basededatos.calificaciones;
-const criticos = basededatos.criticos;
-const directores = basededatos.directores;
-const generos = basededatos.generos;
-const paises = basededatos.paises;
-
 /**
  * Devuelve el promedio de anios de estreno de todas las peliculas de la base de datos.
  */
 export const promedioAnioEstreno = () => {
-  return peliculas.reduce((a, b) => a + b.anio, 0) / peliculas.length;
+  return [];
 };
 
 /**
@@ -20,7 +13,7 @@ export const promedioAnioEstreno = () => {
  * @param {number} promedio
  */
 export const pelicuasConCriticaPromedioMayorA = (promedio) => {
-  return peliculas.filter((p) => calific.filter(c => c.pelicula === p.id).reduce((a, b) => a + b.puntuacion, 0) / calific.filter(c => c.pelicula === p.id).length > promedio);
+  return [];
 };
 
 /**
@@ -28,11 +21,7 @@ export const pelicuasConCriticaPromedioMayorA = (promedio) => {
  * @param {string} nombreDirector
  */
 export const peliculasDeUnDirector = (nombreDirector) => {
-  return peliculas.filter((p) =>
-    p.directores.includes(
-      directores.find((d) => d.nombre === nombreDirector).id
-    )
-  );
+  return [];
 };
 
 /**
@@ -40,7 +29,7 @@ export const peliculasDeUnDirector = (nombreDirector) => {
  * @param {number} peliculaId
  */
 export const promedioDeCriticaBypeliculaId = (peliculaId) => {
-  return calific.filter(c => c.pelicula === peliculaId).reduce((a, b) => a + b.puntuacion, 0) / calific.filter(c => c.pelicula === peliculaId).length;
+  return [];
 };
 
 /**
@@ -78,7 +67,7 @@ export const promedioDeCriticaBypeliculaId = (peliculaId) => {
 export const obtenerPeliculasConPuntuacionExcelente = () => {
   // Ejemplo de como accedo a datos dentro de la base de datos
   // console.log(basededatos.peliculas);
-  return pelicuasConCriticaPromedioMayorA(8.99);
+  return [];
 };
 
 /**
@@ -129,19 +118,5 @@ export const obtenerPeliculasConPuntuacionExcelente = () => {
  * @param {string} nombrePelicula
  */
 export const expandirInformacionPelicula = (nombrePelicula) => {
-  let pelicula = peliculas.find(p => p.nombre === nombrePelicula);
-  pelicula.directores = directores.filter(d => pelicula.directores.includes(d.id));
-  pelicula.generos = generos.filter(g => pelicula.generos.includes(g.id));
-  
-  const calificacionesPelicula = calific.filter(calif => calif.pelicula === pelicula.id);
-  const criticosPelicula = criticos.filter(crit => calificacionesPelicula.find(calif => crit.id === calif.critico));
-  calificacionesPelicula.forEach(calif => {
-    const critico = criticosPelicula.find(crit => crit.critico === calif.id)
-    critico.pais = paises.find(p => critico.pais = p.id).nombre
-    calif.critico = JSON.stringify(criticosPelicula.find(crit => crit.critico === calif.id));
-    delete calif.pelicula;
-  });
-
-  pelicula.criticos = calificacionesPelicula;
-  return pelicula
+  return {};
 };
